@@ -14,4 +14,5 @@ script:
 - APPMAP=true bundle exec rake test
 
 after_script:
+- tree -a tmp
 - env DEBUG=true ruby ./upload-appmaps tmp/appmap/minitest/
