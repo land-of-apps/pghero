@@ -1,0 +1,7 @@
+name: pghero
+
+packages:
+- path: app/controllers
+- path: app/helpers
+- path: config
+- path: lib
