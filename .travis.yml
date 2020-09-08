@@ -4,8 +4,8 @@ version: ~> 1.0
 services:
     - postgres
 
-before_install:
-    - echo "shared_preload_libraries = 'pg_stat_statements'" | sudo tee -a /etc/postgresql/13/main/postgresql.conf
+#before_install:
+#    - echo "shared_preload_libraries = 'pg_stat_statements'" | sudo tee -a /etc/postgresql/13/main/postgresql.conf
     - sudo systemctl restart postgresql@13-main
     - createdb pghero_test
 
