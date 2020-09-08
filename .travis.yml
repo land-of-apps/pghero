@@ -1,12 +1,18 @@
 # Turn on validation, so we can use import:
 version: ~> 1.0
 
+import:
+- land-of-apps/land-of-apps:travis/ruby-imports.yml
+
 services:
-    - postgres
+- postgres
 
 before_install:
-#    - echo "shared_preload_libraries = 'pg_stat_statements'" | sudo tee -a /etc/postgresql/13/main/postgresql.conf
-    - createdb pghero_test
+- createdb pghero_test
 
 script:
-    - bundle exec rake test
+- APPMAP=true bundle exec rake test
+
+after_script:
+- env DEBUG=true ruby ./upload-appmaps tmp/appmap/minitest
+
