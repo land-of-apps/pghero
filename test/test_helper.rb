@@ -1,3 +1,5 @@
+require "appmap/minitest"
+
 require "bundler/setup"
 Bundler.require(:default)
 require "minitest/autorun"

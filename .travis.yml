@@ -1,14 +1,17 @@
-dist: bionic
-language: ruby
-rvm: 2.7
+# Turn on validation, so we can use import:
+version: ~> 1.0
+
+import:
+- land-of-apps/land-of-apps:travis/ruby-imports.yml
+
 services:
-  - postgresql
-addons:
-  postgresql: 10
-script: bundle exec rake test
+- postgres
+
 before_install:
-  - createdb pghero_test
-notifications:
-  email:
-    on_success: never
-    on_failure: change
+- createdb pghero_test
+
+script:
+- APPMAP=true bundle exec rake test
+
+after_script:
+- env DEBUG=true ruby ./upload-appmaps tmp/appmap/minitest
