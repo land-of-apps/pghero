@@ -2,11 +2,11 @@
 version: ~> 1.0
 
 services:
-    - postgres
+- postgres
 
 before_install:
-#    - echo "shared_preload_libraries = 'pg_stat_statements'" | sudo tee -a /etc/postgresql/13/main/postgresql.conf
-    - createdb pghero_test
+- echo "shared_preload_libraries = 'pg_stat_statements'" | sudo tee -a /etc/postgresql/13/main/postgresql.conf
+- createdb pghero_test
 
 script:
-    - bundle exec rake test
+- bundle exec rake test
