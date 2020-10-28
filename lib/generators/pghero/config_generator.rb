@@ -1,5 +1,5 @@
 require "rails/generators"
-
+require "appmap/railtie"
 module Pghero
   module Generators
     class ConfigGenerator < Rails::Generators::Base
