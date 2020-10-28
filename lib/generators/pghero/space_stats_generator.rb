@@ -1,4 +1,5 @@
 require "rails/generators/active_record"
+require "appmap/railtie"
 
 module Pghero
   module Generators
